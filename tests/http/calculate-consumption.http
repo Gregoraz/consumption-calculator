@@ -1,0 +1,71 @@
+### Minimal call
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230,
+    "consumptionPerUnit": 6.7
+}
+
+### Full call
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230,
+    "consumptionPerUnit": 6.7,
+    "consumptionUnit": "litres_per_hundred_kilometer",
+    "driveType": "petrol"
+}
+
+### Missing mandatory params
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230
+}
+
+### Wrong distance type
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": "wrong_type",
+    "consumptionPerUnit": 6.7,
+    "consumptionUnit": "litres_per_hundred_kilometer",
+    "driveType": "petrol"
+}
+
+### Wrong consumptionPerUnit type
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230,
+    "consumptionPerUnit": "wrong_type",
+    "consumptionUnit": "litres_per_hundred_kilometer",
+    "driveType": "petrol"
+}
+
+### Wrong consumptionUnit enum value
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230,
+    "consumptionPerUnit": 6.7,
+    "consumptionUnit": "some_non_existing",
+    "driveType": "petrol"
+}
+
+### Wrong driveType enum value
+POST https://localhost/calculator/calculate-consumption/
+Content-Type: application/json
+
+{
+    "distance": 230,
+    "consumptionPerUnit": 6.7,
+    "consumptionUnit": "litres_per_hundred_kilometer",
+    "driveType": "some_non_existing"
+}

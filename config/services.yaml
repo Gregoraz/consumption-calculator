@@ -1,0 +1,31 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+
+    App\:
+        resource: '../src/*'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+
+# Calculator
+    App\Calculator\Validator\NumberValidator:
+        class: App\Calculator\Validator\NumberValidator
+
+    App\Calculator\AbstractCalculator:
+        abstract: true
+        class: App\Calculator\AbstractCalculator
+    
+    App\Calculator\ConsumptionCalculator\ConsumptionCalculatorInterface:
+        class: App\Calculator\ConsumptionCalculator\ConsumptionCalculator
+        parent: App\Calculator\AbstractCalculator
+        
+    App\Calculator\ConsumptionCalculator\ConsumptionCarCalculatorInterface:
+        class: App\Calculator\ConsumptionCalculator\ConsumptionCarCalculator
+        parent: App\Calculator\AbstractCalculator    
+        

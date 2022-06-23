@@ -1,0 +1,7 @@
+framework:
+    rate_limiter:
+        # only possible 100 calls for 1 hour
+        calculation_limit:
+            policy: 'fixed_window'
+            limit: 100
+            interval: '60 minutes'

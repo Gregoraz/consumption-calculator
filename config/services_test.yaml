@@ -1,0 +1,24 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        
+    App\Calculator\Validator\NumberValidator:
+        class: App\Calculator\Validator\NumberValidator
+        public: true
+
+    App\Calculator\AbstractCalculator:
+        abstract: true
+        class: App\Calculator\AbstractCalculator
+        public: true
+    
+    App\Calculator\ConsumptionCalculator\ConsumptionCalculatorInterface:
+        public: true
+        class: App\Calculator\ConsumptionCalculator\ConsumptionCalculator
+        parent: App\Calculator\AbstractCalculator
+        
+    App\Calculator\ConsumptionCalculator\ConsumptionCarCalculatorInterface:
+        public: true
+        class: App\Calculator\ConsumptionCalculator\ConsumptionCarCalculator
+        parent: App\Calculator\AbstractCalculator
+        
